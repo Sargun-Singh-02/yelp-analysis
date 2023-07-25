@@ -41,19 +41,27 @@ ix. User = 10000(id)
 x. Friend = 11 (user_id)
 xi. Elite_years = 2780 (user_id)
 
-Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
-
 
 
 3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
 
-	Answer: no
+Answer: 
+		no
 	
 	
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
+
 	select count(*)
 	from user
-	where id = NULL or name = NULL or review_count = NULL or 			yelping_since = NULL or useful = NULL or funny = NULL or 		cool = NULL or fans= NULL or average_stars= NULL or 			compliment_hot= NULL or compliment_more= NULL or 			compliment_profile= NULL or compliment_cute= NULL or 			compliment_list= NULL or compliment_note= NULL or 			compliment_plain = NULL or compliment_cool= NULL or 			compliment_funny= NULL or compliment_writer= NULL or 			compliment_photos= NULL;
+	where id = NULL or name = NULL or review_count = NULL or 			
+		yelping_since = NULL or useful = NULL or funny = NULL or 		
+		cool = NULL or fans= NULL or average_stars= NULL or 			
+		compliment_hot= NULL or compliment_more= NULL or 			
+		compliment_profile= NULL or compliment_cute= NULL or 			
+		compliment_list= NULL or compliment_note= NULL or 			
+		compliment_plain = NULL or compliment_cool= NULL or 			
+		compliment_funny= NULL or compliment_writer= NULL or 			
+		compliment_photos= NULL;
 
 	
 
@@ -95,7 +103,7 @@ Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.
 	group by city
 	order by sum(review_count) desc
 	
-	Copy and Paste the Result Below:
+Copy and Paste the Result Below:
 	
 +-----------------+-------------------+
 | city            | sum(review_count) |
@@ -135,10 +143,10 @@ i. Avon
 SQL code used to arrive at answer:
 
 
-select CITY,STARS,count(STARS)
-from business
-WHERE CITY = "Avon"
-group by stars 
+	select CITY,STARS,count(STARS)
+	from business
+	WHERE CITY = "Avon"
+	group by stars 
 
 Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
 
@@ -160,10 +168,10 @@ ii. Beachwood
 SQL code used to arrive at answer:
 
 
-select CITY,STARS,count(STARS)
-from business
-WHERE CITY = "Beachwood"
-group by stars
+		select CITY,STARS,count(STARS)
+		from business
+		WHERE CITY = "Beachwood"
+		group by stars
 
 Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
 +-----------+-------+--------------+
@@ -182,16 +190,16 @@ Copy and Paste the Resulting Table Below (2 columns â€“ star rating and cou
 
 7. Find the top 3 users based on their total number of reviews:
 		
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
 	
 	select name, id, review_count
 	from user
 	order by review_count desc
 	limit 3 
 		
-	Copy and Paste the Result Below:
-		
-name   | id                     | review_count |
+Copy and Paste the Result Below:
++--------+------------------------+--------------+		
+|name    | id                     | review_count |
 +--------+------------------------+--------------+
 | Gerald | -G7Zkl1wIWBBmD0KRy_sCw |         2000 |
 | Sara   | -3s52C4zL_DHRK0ULG6qtg |         1629 |
@@ -200,9 +208,9 @@ name   | id                     | review_count |
 
 8. Does posing more reviews correlate with more fans?
 
-	Please explain your findings and interpretation of the results:
+Please explain your findings and interpretation of the results:
 	
-no it does not directly correlate. there is a mixed review. there are users who have very high review count but still fans are low, and vica versa is also true.
+  		no it does not directly correlate. there is a mixed review. there are users who have very high review count but still fans are low, and vica versa is also 		true.
 	
  name      | review_count | fans |
 +-----------+--------------+------+
@@ -235,15 +243,15 @@ no it does not directly correlate. there is a mixed review. there are users who 
 
 9. Are there more reviews with the word "love" or with the word "hate" in them?
 
-	Answer:
+Answer:
 	
 	more reviews with the word "love" than "hate"
 	
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
 
-select count(text)
-from review
-where text like "%love%"
+		select count(text)
+		from review
+		where text like "%love%"
 
 +-------------+
 | count(text) |
@@ -251,9 +259,9 @@ where text like "%love%"
 |        1780 |
 +-------------+
 
-select count(text)
-from review
-where text like "%hate%" 
+		select count(text)
+		from review
+		where text like "%hate%" 
 
 +-------------+
 | count(text) |
@@ -263,14 +271,14 @@ where text like "%hate%"
 	
 10. Find the top 10 users with the most fans:
 
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
 	
 		select name, fans
 		from user
 		order by fans desc
 		limit 10
 	
-	Copy and Paste the Result Below:
+Copy and Paste the Result Below:
 
 +-----------+------+
 | name      | fans |
@@ -295,14 +303,14 @@ Part 2: Inferences and Analysis
 i. Do the two groups you chose to analyze have a different distribution of hours?
 
 	Group 1 - having 2-3 stars- have hrs 800 to 2200 i.e. 14 hrs
-	Group 2 - having 3-5 stars- are open in evening on weekdays, and early evening on weekends, 1500 to 2100 i.e 6 hrs, 1100 to 2100 i.e 10 hrs, 1800 to 	200 i.e 8 hrs, 1600 to 200 i.e 10 hrs
+	Group 2 - having 3-5 stars- are open in evening on weekdays, and early evening on weekends, 1500 to 2100 i.e 6 hrs, 1100 to 2100 i.e 10 hrs, 1800 to 	200 i.e 8 		  hrs, 1600 to 200 i.e 10 hrs
 
 	group 2 which is having more starts is open for lesser timings, also it is open late at night which is their USP
 
 
 ii. Do the two groups you chose to analyze have a different number of reviews?
 
-	yes, the review count in group1 (2-3 stars) have a review count of 10), and group 2( 3-5 stars) have a review count of 15 and 26 which is higher 	than group 1         
+	yes, the review count in group1 (2-3 stars) have a review count of 10), and group 2( 3-5 stars) have a review count of 15 and 26 which is higher than group 1         
          
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.
 
@@ -312,7 +320,7 @@ iii. Are you able to infer anything from the location data provided between thes
 SQL code used for analysis:
 
 
-	-- chosen city = Toronto , category = food
+	/*chosen city = Toronto , category = food */
 	select distinct b.name, b.city, c.category, stars,h.hours,b.review_count,
   	  	b.postal_code,b.neighborhood,
   	    case 
@@ -377,15 +385,15 @@ i)
 	
 
 ii)
-select is_open,
-    count(case 
-            when stars between 1 and 3 then "1 to 3 stars"
-        end) as less_stars,
-    count(case 
-            when stars between 3 and 5 then "3 to 5 stars"
-          end) as more_stars
-from business
-group by is_open
+		select is_open,
+ 		   count(case 
+ 		           when stars between 1 and 3 then "1 to 3 stars"
+  		      end) as less_stars,
+		    count(case 
+   		         when stars between 3 and 5 then "3 to 5 stars"
+     		     end) as more_stars
+		from business
+		group by is_open
 	
 
 3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
@@ -400,11 +408,11 @@ i. Indicate the type of analysis you chose to do:
          
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
  
-	I will pick several types of food including “Chinese”,”Mexican”,”Korean”,”French”,”Italian”,”Japanese” and “Indian”. Then I will analyze their star ratings and number of reviews. so that I can get some insights on which type of food is popular on yelp
+	I will pick several types of food including “Chinese”,”Mexican”,”Korean”,”French”,”Italian”,”Japanese” and “Indian”. Then I will analyze their star ratings and 	number of reviews. so that I can get some insights on which type of food is popular on yelp
 
-The result of the analysis are as follows:
-	1) the most favourite restaurant on the basis of stars in korean but it has very few reviews 
-	2) there are maximum number of mexican restaurants, which too have a decent rating                    
+	The result of the analysis are as follows:
+		1) the most favourite restaurant on the basis of stars in korean but it has very few reviews 
+		2) there are maximum number of mexican restaurants, which too have a decent rating                    
                   
 
 iii. Output of your finished dataset:
@@ -425,28 +433,28 @@ iii. Output of your finished dataset:
 iv. Provide the SQL code you used to create your final dataset:
 
 
-select c. category,count(b.name) as no_of_businesses, avg(b.stars) as avg_stars,avg(b.review_count) as avg_review_count
-from business b join category c 
-on b.id = c.business_id
-where c.category in ("Chinese","Mexican","French","Italian","Korean","Japanese","Indian") 
-group by c.category
-order by avg_stars desc
+		select c. category,count(b.name) as no_of_businesses, avg(b.stars) as avg_stars,avg(b.review_count) as avg_review_count
+		from business b join category c 
+		on b.id = c.business_id
+		where c.category in ("Chinese","Mexican","French","Italian","Korean","Japanese","Indian") 
+		group by c.category
+		order by avg_stars desc
 
 (2)
 i. Indicate the type of analysis you chose to do:
          
-	Predicting the number of fans a user will have
+		Predicting the number of fans a user will have
          
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
  
-	few points that can be useful for predicting the number of fans a user will have like the number of useful reviews, years active on yelp, whether he/she is an elite member and for how long, compliments received from users etc.
+		few points that can be useful for predicting the number of fans a user will have like the number of useful reviews, years active on yelp, whether he/she is 		an elite member and for how long, compliments received from users etc.
 
- I have used the user table and the elite_years table for my analysis. The result of the analysis are as follows:
--- 1) Being an elite member doesnot have much of an effect on the number of fans as most of the high fan user were not elite members ever.
--- 2) On an average, a user has been on yelp for 7 years.
--- 3) For fan prediction, it seems on an average each review can count towards 0.033 fans i.e. on an average one can expect 1 fan for every 30 reviews posted
--- 4) On an average, one can expect 1 fan for every 4 rating for usefulness given by users and 
--- 5)on average 1 fan for every 5.5 rating for compliment given by users         
+		 I have used the user table and the elite_years table for my analysis. The result of the analysis are as follows:
+		-- 1) Being an elite member doesnot have much of an effect on the number of fans as most of the high fan user were not elite members ever.
+		-- 2) On an average, a user has been on yelp for 7 years.
+		-- 3) For fan prediction, it seems on an average each review can count towards 0.033 fans i.e. on an average one can expect 1 fan for every 30 reviews 				posted
+		-- 4) On an average, one can expect 1 fan for every 4 rating for usefulness given by users and 
+		-- 5)on average 1 fan for every 5.5 rating for compliment given by users         
 
 iii. Output of your finished dataset:
 
@@ -454,21 +462,19 @@ in next part
          
 iv. Provide the SQL code you used to create your final dataset:
 
-SELECT
-	name,
-	DATE('NOW')-yelping_since AS years_active,
-	(MAX(year)-MIN(year)) AS elite_year,
-	ROUND(fans*1.0/review_count,2) as fans_per_review,
-	ROUND(fans*1.0/useful,2) as fans_per_useful,
-	ROUND(fans*1.0/(funny+cool+compliment_hot+ compliment_more+ compliment_profile+ compliment_cute+ compliment_list + compliment_note + compliment_plain + compliment_cool + compliment_funny + compliment_writer + compliment_photos),2) AS fans_per_compliment
+		SELECT
+			name,
+			DATE('NOW')-yelping_since AS years_active,
+			(MAX(year)-MIN(year)) AS elite_year,
+			ROUND(fans*1.0/review_count,2) as fans_per_review,
+			ROUND(fans*1.0/useful,2) as fans_per_useful,
+			ROUND(fans*1.0/(funny+cool+compliment_hot+ compliment_more+ compliment_profile+ compliment_cute+ compliment_list + compliment_note + 					compliment_plain + compliment_cool + compliment_funny + compliment_writer + compliment_photos),2) AS fans_per_compliment
 
-FROM user LEFT JOIN elite_years
-ON user.id=elite_years.user_id
-
-GROUP BY name
-
-ORDER BY review_count DESC
-LIMIT 10
+		FROM user LEFT JOIN elite_years
+		ON user.id=elite_years.user_id
+		GROUP BY name
+		ORDER BY review_count DESC
+		LIMIT 10
 
 +---------+--------------+------------+-----------------+-----------------+---------------------+
 | name    | years_active | elite_year | fans_per_review | fans_per_useful | fans_per_compliment |
@@ -486,13 +492,13 @@ LIMIT 10
 +---------+--------------+------------+-----------------+-----------------+---------------------+
 
 
-SELECT
-	AVG(DATE('NOW')-yelping_since) AS years_active,
-	AVG(ROUND(fans*1.0/review_count,2)) as fans_per_review,
-	AVG(ROUND(fans*1.0/useful,2)) as fans_per_useful,
-	AVG(ROUND(fans*1.0/(funny+cool+compliment_hot+ compliment_more+ compliment_profile+ compliment_cute+ compliment_list + compliment_note + compliment_plain + compliment_cool + compliment_funny + compliment_writer + compliment_photos),2)) AS fans_per_compliment
+		SELECT
+			AVG(DATE('NOW')-yelping_since) AS years_active,
+			AVG(ROUND(fans*1.0/review_count,2)) as fans_per_review,
+			AVG(ROUND(fans*1.0/useful,2)) as fans_per_useful,
+			AVG(ROUND(fans*1.0/(funny+cool+compliment_hot+ compliment_more+ compliment_profile+ compliment_cute+ compliment_list + compliment_note + 				compliment_plain + compliment_cool + compliment_funny + compliment_writer + compliment_photos),2)) AS fans_per_compliment
 
-FROM user;
+		FROM user;
 
 +--------------+-----------------+-----------------+---------------------+
 | years_active | fans_per_review | fans_per_useful | fans_per_compliment |
